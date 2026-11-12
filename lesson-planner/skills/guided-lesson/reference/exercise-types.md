@@ -3,7 +3,7 @@
 These are the same exercise types and data shapes Menta's lesson player uses, so a lesson made here can later be
 rebuilt in Menta one to one. The lesson page JSON:
 ```json
-{ "title": "Life stages", "language": "French", "lang_code": "fr", "level": "A2", "kind": "Core", "minutes": 60,
+{ "title": "Life stages", "language": "French", "lang_code": "fr", "level": "A2", "kind": "Core", "focus": "speaking", "minutes": 45,
   "translate_to": "Ukrainian", "goal": "Talk about the stages of your life with the passé composé.",
   "style": {}, "ui": {},
   "blocks": [ { "name": "Warm-up", "minutes": 5, "exercises": [ { "type": "speaking", "task": "…", "task_tr": "…", "items": [] } ] } ] }

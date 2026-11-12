@@ -138,7 +138,7 @@ const D = JSON.parse(document.getElementById('lesson-data').textContent);
 const UI = Object.assign({
   print:"Print / Save as PDF", printAns:"PDF with answers", answers:"Teacher answers", translations:"All translations",
   check:"Check", reset:"Reset", model:"Model answer", tapHint:"Tap a sentence to see its translation.",
-  min:"min", level:"Level", kind:"Lesson", translate:"Translations", phrases:"Useful phrases",
+  min:"min", level:"Level", focus:"Focus", kind:"Lesson", translate:"Translations", phrases:"Useful phrases",
   footer:"Enjoy interactive lessons like this? Join Menta to save each student's progress, teach over video calls, assign homework and more.",
   footerLink:"See your lesson live on Menta →", yourAnswer:"Your answer…", words:"words", start:"Start", choose:"choose…", required:"Use these words:"
 }, D.ui || {});
@@ -385,7 +385,7 @@ R.story_telling = ex => {
 
 /* ---------- page ---------- */
 const app = document.getElementById('app');
-const meta = [ [UI.level, D.level], [UI.kind, D.kind], [D.language], [D.minutes ? D.minutes + ' ' + UI.min : null], [UI.translate, D.translate_to] ]
+const meta = [ [UI.level, D.level], [UI.kind, D.kind], [UI.focus, D.focus], [D.language], [D.minutes ? D.minutes + ' ' + UI.min : null], [UI.translate, D.translate_to] ]
   .filter(x => x[x.length-1]).map(x => h('span', {}, x.length > 1 ? x[0] + ': ' + x[1] : x[0]));
 app.append(h('header', {class:'top'}, h('h1', {}, D.title), h('div', {class:'meta'}, meta),
   D.goal ? h('p', {}, D.goal) : null,

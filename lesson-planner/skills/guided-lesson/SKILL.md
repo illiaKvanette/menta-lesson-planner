@@ -18,8 +18,13 @@ Read before writing anything:
 - `reference/why-this-order.md`: the research behind the order, for when the teacher asks "why".
 
 ## 1. Understand the request
-From the request, take: target language, CEFR level, topic, grammar point, lesson kind, students' language.
-If any of these is missing, ask **once, in one message**, before writing:
+From the request, take: target language, CEFR level, topic, grammar point, lesson kind, students' language, and
+two **optional** settings:
+- **focus**: speaking, grammar, vocabulary, reading, writing / production, or balanced (default). Words like
+  "talking", "conversation" or "more speaking" mean speaking; "a grammar lesson" means grammar.
+- **duration**: the lesson length in minutes, 20 to 120 (default 60). "Half an hour" = 30, "an hour and a half" = 90.
+Never ask about focus or duration: if the teacher did not give them, use balanced and 60.
+If any of the required items is missing, ask **once, in one message**, before writing:
 - what the class already knows (earlier topics and grammar), so nothing goes beyond it;
 - the students' language, for translations;
 - the lesson kind (core, grammar focus, revision, production, bilan, unit test). Suggest "core" by default.
@@ -57,7 +62,8 @@ watercolours", "redraw the text picture with a cat"), change the page or the pic
 profile so the next lesson already looks that way. The method (block order, writing rules) stays; the look is theirs.
 
 ## 3. Plan, then write
-1. Show a short plan: kind, the blocks with minutes, the text topic, the grammar point, the 8–12 words, the speaking
+1. Fit the lesson to the duration and focus (`reference/lesson-kinds.md`, "Focus and duration").
+   Show a short plan: kind, focus, duration, the blocks with minutes (they add up to the duration), the text topic, the grammar point, the 8–12 words, the speaking
    task. Wait for "yes" unless the teacher said to go straight ahead.
 2. Write the lesson **in block order** from `reference/lesson-kinds.md`, following `reference/writing-rules.md`.
    Write each answer first, then the sentence around it.
@@ -69,7 +75,8 @@ profile so the next lesson already looks that way. The method (block order, writ
    when you can), and publish it as an Artifact when the host supports Artifacts.
 
 ## 4. Before handing it over (checklist)
-- [ ] Block order and counts as in the kind; grammar practice at most 10 items.
+- [ ] Block order and counts as in the kind, scaled to the duration and focus; block minutes add up to the duration;
+  grammar practice at most 10 items.
 - [ ] No past tense at Pre-A1–A1; nothing beyond what the class has been taught.
 - [ ] Dialogues: at most 2 speakers, real-life order.
 - [ ] Comprehension tests the text's content, not the grammar.

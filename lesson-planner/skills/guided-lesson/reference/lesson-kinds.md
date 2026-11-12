@@ -1,4 +1,4 @@
-# Lesson kinds and block order (60 minutes)
+# Lesson kinds and block order (60 minutes by default)
 
 Pick the kind from the request; default **Core**.
 
@@ -49,3 +49,28 @@ A short podcast interview: a named host asks, the student is the guest. Title it
 ("Podcast 'My life in stages': you are the guest"). 6–8 guest turns, open questions about the student's own life
 that use the lesson's grammar and words. The host reacts briefly before each next question. Each guest line has a
 `hint`: a 2–3 sentence model answer at the level.
+
+## Focus and duration (both optional)
+The tables above are a **balanced 60-minute** lesson. The teacher may ask for another length, another focus, or both.
+The block **order** never changes; only minutes and item counts do. Set `"minutes"` and `"focus"` in the page JSON.
+
+**Duration.** Scale every block's minutes in proportion, then round to whole minutes so they add up to the duration.
+- Under 45 minutes: keep warm-up, the text with one reading round, notice + theory, practice, the speaking task;
+  merge picture matching into the vocabulary block; drop cards (they are review) unless the focus is vocabulary.
+- 45–75 minutes: all blocks.
+- Over 75 minutes: all blocks, plus a second speaking task (a role play with `production_cards`) and a short
+  writing task (`constrained_text`) at the end. Grammar practice stays at most 10 items; add a second practice set
+  of up to 6 items after the vocabulary block if needed.
+- Item counts follow the time: about one minute per practice item, 2–3 minutes per speaking item.
+
+**Focus.** Move about a third of the time toward the focus, taken evenly from the other blocks, never below
+2 minutes for a kept block.
+| Focus | More of | Less of |
+|---|---|---|
+| speaking | warm-up (4–5 questions), speaking `items` after the gist round, two speaking tasks at the end (podcast + role play) | grammar practice (5–6 items), vocabulary practice |
+| grammar | notice, theory with 2–3 tables, practice up to 10 items, a second short set | second reading round, picture matching |
+| vocabulary | picture matching, `memory_pairs` or `label_picture`, about 12 vocabulary items, cards, `crossword` | theory slides (one slide + one table) |
+| reading | a longer text (top of the level range), both rounds, `paragraph_headings` or `sort_paragraphs` | grammar practice |
+| writing / production | the model-text analysis, `constrained_text` in class with required words, then a short speaking task | picture matching, cards |
+| balanced | the tables above | — |
+A **grammar-focus** or **production** lesson kind already leans that way; the focus setting adds to it.

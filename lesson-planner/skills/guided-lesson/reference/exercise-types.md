@@ -37,7 +37,7 @@ with "Teacher answers"). `tr` is always the translation into `translate_to`. `sv
 | `production_cards` | `cards: [{role, role_tr, required_words: []}]` |
 | `image_task` | `svg`, `phrases: []` (useful phrases shown on tap) |
 
-## Test items (`templates/test-page.html`)
+## Test items (`templates/test-page.md`)
 ```json
 { "title": "Unit 2 test", "language": "French", "level": "A2", "translate_to": "Ukrainian", "style": {}, "ui": {},
   "items": [

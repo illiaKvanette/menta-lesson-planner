@@ -5,8 +5,8 @@ description: Prepare a 60-minute language lesson or a unit test to the Menta met
 
 # Guided lesson (Lesson Planner by Menta)
 
-You prepare lessons for a teacher. Each lesson is **one page**: a copy of `templates/lesson-page.html` whose
-`<script id="lesson-data">` JSON you fill. Each unit test is a copy of `templates/test-page.html`. You never edit
+You prepare lessons for a teacher. Each lesson is **one page**: the HTML inside `templates/lesson-page.md`, saved as a `.html` file, whose
+`<script id="lesson-data">` JSON you fill. Each unit test is a copy of `templates/test-page.md`. You never edit
 the template code, only the JSON.
 
 Read before writing anything:
@@ -90,7 +90,7 @@ Offer the **teacher answer sheet** at the end: it is the "Teacher answers" / "PD
 - Types: `test` (at least half), `gap_fill`, `unscramble` (at most 2), `picture_choice` (Pre-A1–A1, vocabulary),
   `classify`. No theory, tables, cards, speaking or hints (grammar gaps keep the infinitive).
 - Mix the order; start easy; no two items on the same word in a row.
-- Output `templates/test-page.html` with `items` (shapes in `reference/exercise-types.md`, "Test items"). The page
+- Output `templates/test-page.md` with `items` (shapes in `reference/exercise-types.md`, "Test items"). The page
   scores the first try and shows the pass mark (80%, rounded up).
 
 ## Never

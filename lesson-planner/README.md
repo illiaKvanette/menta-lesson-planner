@@ -1,4 +1,4 @@
-# Lesson Planner by Menta
+# Menta Lesson Planner
 
 Prepare language lessons the way Menta does: a 60-minute lesson built in an evidence-based order, written to strict
 rules, delivered as an **interactive page** your students can click through, with translations on tap, drawn
@@ -25,7 +25,7 @@ and remembers.
 **Claude Code**
 ```
 /plugin marketplace add illiaKvanette/menta-lesson-planner
-/plugin install lesson-planner@menta
+/plugin install menta-lesson-planner@menta
 ```
 **Claude app (web and desktop)**: download https://menta-lms.com/lesson-planner-skill.zip, then Settings →
 Capabilities → Skills → Upload skill. The commands become plain requests: "Prepare a lesson: …".
@@ -36,10 +36,10 @@ Capabilities → Skills → Upload skill. The commands become plain requests: "P
 commands/lesson.md, commands/unit-test.md
 skills/guided-lesson/SKILL.md
 skills/guided-lesson/reference/   lesson-kinds, exercise-types, writing-rules, levels, why-this-order, picture-style
-skills/guided-lesson/templates/   lesson-page.html, test-page.html
+skills/guided-lesson/templates/   lesson-page.md, test-page.md (the HTML page templates)
 ```
 
 ## Licence
-MIT: free to use, change and pass on to colleagues. Keep the copyright notice. See `LICENSE`.
+MIT: free to use, change and pass on to colleagues. Keep the copyright notice. See `LICENSE.md`.
 
 Want each student's progress saved, video lessons, homework and payments in one place? → https://menta-lms.com

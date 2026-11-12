@@ -1,3 +1,9 @@
+# Lesson page template
+
+Copy everything inside the `html` block below into a new `.html` file, then fill only the JSON data block.
+Do not change the rest of the code.
+
+````html
 <!doctype html>
 <html lang="en">
 <head>
@@ -407,3 +413,4 @@ app.append(h('aside', {class:'footer-card'},
 </script>
 </body>
 </html>
+````

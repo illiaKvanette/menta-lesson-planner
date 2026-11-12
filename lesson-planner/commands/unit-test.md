@@ -9,4 +9,4 @@ $ARGUMENTS
 
 If the lessons are lesson pages made earlier, read them (their `lesson-data` JSON) for the words and grammar they
 taught. Otherwise ask for each lesson's words and grammar point. Write 15–20 new items, never copied from a
-lesson, and output a separate page from `templates/test-page.html`.
+lesson, and output a separate page from `templates/test-page.md`.

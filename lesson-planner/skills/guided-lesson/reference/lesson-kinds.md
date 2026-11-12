@@ -71,6 +71,24 @@ The block **order** never changes; only minutes and item counts do. Set `"minute
 | grammar | notice, theory with 2–3 tables, practice up to 10 items, a second short set | second reading round, picture matching |
 | vocabulary | picture matching, `memory_pairs` or `label_picture`, about 12 vocabulary items, cards, `crossword` | theory slides (one slide + one table) |
 | reading | a longer text (top of the level range), both rounds, `paragraph_headings` or `sort_paragraphs` | grammar practice |
+| **no grammar** | the second reading round, speaking after the text, vocabulary (about 12 items), word games (`memory_pairs`, `crossword`), cards, a short `constrained_text` | **blocks 5 and 6 are removed entirely**: no notice step, no theory, no tables, no grammar practice |
 | writing / production | the model-text analysis, `constrained_text` in class with required words, then a short speaking task | picture matching, cards |
 | balanced | the tables above | — |
 A **grammar-focus** or **production** lesson kind already leans that way; the focus setting adds to it.
+
+**No grammar** (the teacher says "no grammar", "without grammar", "just words and talking"). Remove blocks 5 and 6,
+give their minutes to reading, vocabulary and speaking, and add a short writing task. Then nothing in the lesson
+may *teach or test* a structure: no `grammar_theory`, no `grammar_table`, no gap fill with a verb in brackets, no
+`classify` of forms, and no comprehension question about a form. The text and the dialogue still use correct
+language, but they are read for meaning only. If the lesson kind is *grammar focus*, ask once what they want, because
+the two cannot both be true.
+
+## Flows at a glance (each adds up to the lesson length; here 60 minutes)
+| Style | Blocks (minutes) |
+|---|---|
+| Balanced | warm-up 5, gist 8, details 7, pictures 3, notice + theory 8, grammar practice 9, vocabulary 10, cards 2, podcast 8 |
+| Speaking | warm-up 8, gist 6, talk about the text 8, notice + theory 6, grammar practice 4, vocabulary 6, podcast 10, role play 12 |
+| Vocabulary | warm-up 5, gist 7, details 5, pictures 6, vocabulary 14, word games 10, cards 5, podcast 8 |
+| Grammar | warm-up 5, gist 7, notice + theory 16, practice 14, contrast practice 8, podcast 10 |
+| No grammar | warm-up 6, gist 8, details 8, pictures 5, vocabulary 12, cards 3, podcast 8, writing task 10 |
+| Unit test | easy start, words (2 per lesson), grammar (1 per lesson), mixed review, score; no minutes |

@@ -20,8 +20,8 @@ Read before writing anything:
 ## 1. Understand the request
 From the request, take: target language, CEFR level, topic, grammar point, lesson kind, students' language, and
 two **optional** settings:
-- **focus**: speaking, grammar, vocabulary, reading, writing / production, or balanced (default). Words like
-  "talking", "conversation" or "more speaking" mean speaking; "a grammar lesson" means grammar.
+- **focus**: speaking, grammar, vocabulary, reading, writing / production, **no grammar**, or balanced (default). Words like
+  "talking", "conversation" or "more speaking" mean speaking; "a grammar lesson" means grammar; "no grammar" or "without grammar" means a lesson with no grammar teaching or testing at all.
 - **duration**: the lesson length in minutes, 20 to 120 (default 60). "Half an hour" = 30, "an hour and a half" = 90.
 Never ask about focus or duration: if the teacher did not give them, use balanced and 60.
 If any of the required items is missing, ask **once, in one message**, before writing:
@@ -77,6 +77,7 @@ profile so the next lesson already looks that way. The method (block order, writ
 ## 4. Before handing it over (checklist)
 - [ ] Block order and counts as in the kind, scaled to the duration and focus; block minutes add up to the duration;
   grammar practice at most 10 items.
+- [ ] Focus "no grammar": no theory, tables, bracketed-verb gaps or form questions anywhere.
 - [ ] No past tense at Pre-A1–A1; nothing beyond what the class has been taught.
 - [ ] Dialogues: at most 2 speakers, real-life order.
 - [ ] Comprehension tests the text's content, not the grammar.

@@ -9,7 +9,7 @@ Website: https://menta-lms.com/plugin
 ## Commands
 - `/lesson <request>`: one lesson. Example:
   `/lesson prepare a lesson: A2 French, life stages, passé composé with avoir, students speak Ukrainian`
-  Optional: a **focus** (speaking, grammar, vocabulary, reading, writing) and a **duration** (20–120 min, default 60),
+  Optional: a **focus** (speaking, grammar, vocabulary, reading, writing, or no grammar at all) and a **duration** (20–120 min, default 60),
   e.g. `/lesson B1 English, work, reported speech, students speak Polish, focus on speaking, 45 minutes`.
   Missing details (what the class knows, the students' language, the lesson kind) are asked first.
 - `/unit-test <lessons>`: a scored test of 15–20 new items from a list of lessons, on its own page.

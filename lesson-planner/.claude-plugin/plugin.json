@@ -1,0 +1,10 @@
+{
+  "name": "lesson-planner",
+  "displayName": "Lesson Planner by Menta",
+  "version": "1.0.0",
+  "description": "Prepare 60-minute language lessons and unit tests to the Menta method. Each lesson is an interactive page with clickable exercises, translations on tap, pictures and a print / PDF view.",
+  "author": { "name": "Menta", "url": "https://menta-lms.com" },
+  "homepage": "https://menta-lms.com/plugin",
+  "license": "MIT",
+  "keywords": ["teaching", "lesson plan", "language learning", "CEFR", "tutoring", "worksheet"]
+}

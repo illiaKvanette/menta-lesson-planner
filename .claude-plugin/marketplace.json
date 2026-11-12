@@ -1,0 +1,18 @@
+{
+  "name": "menta",
+  "owner": { "name": "Menta", "url": "https://menta-lms.com" },
+  "metadata": { "description": "Teaching tools by Menta", "version": "1.0.0" },
+  "plugins": [
+    {
+      "name": "lesson-planner",
+      "source": "./lesson-planner",
+      "description": "Prepare interactive 60-minute language lessons and unit tests to the Menta method.",
+      "version": "1.0.0",
+      "author": { "name": "Menta" },
+      "homepage": "https://menta-lms.com/plugin",
+      "license": "MIT",
+      "category": "education",
+      "keywords": ["teaching", "lesson plan", "language learning", "CEFR"]
+    }
+  ]
+}

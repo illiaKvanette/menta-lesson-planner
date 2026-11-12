@@ -1,0 +1,45 @@
+# Lesson Planner by Menta
+
+Prepare language lessons the way Menta does: a 60-minute lesson built in an evidence-based order, written to strict
+rules, delivered as an **interactive page** your students can click through, with translations on tap, drawn
+pictures and a print / **Save as PDF** view (with or without the answers).
+
+Website: https://menta-lms.com/plugin
+
+## Commands
+- `/lesson <request>`: one lesson. Example:
+  `/lesson prepare a lesson: A2 French, life stages, passé composé with avoir, students speak Ukrainian`
+  Missing details (what the class knows, the students' language, the lesson kind) are asked first.
+- `/unit-test <lessons>`: a scored test of 15–20 new items from a list of lessons, on its own page.
+
+## Lesson kinds
+Core, grammar focus, revision, production, bilan, unit test.
+
+## Your style
+The planner learns from the lessons you made before (the language you translate into, colours, fonts, picture
+style) and keeps a small profile at `~/.lesson-planner/style-profile.json`. With no history it uses the Menta style.
+Ask for any change ("serif font", "darker", "watercolour pictures", "redraw the kitchen with a cat") and it redraws
+and remembers.
+
+## Install
+**Claude Code**
+```
+/plugin marketplace add illiaKvanette/menta-lesson-planner
+/plugin install lesson-planner@menta
+```
+**Claude app (web and desktop)**: download https://menta-lms.com/lesson-planner-skill.zip, then Settings →
+Capabilities → Skills → Upload skill. The commands become plain requests: "Prepare a lesson: …".
+
+## What's inside
+```
+.claude-plugin/plugin.json
+commands/lesson.md, commands/unit-test.md
+skills/guided-lesson/SKILL.md
+skills/guided-lesson/reference/   lesson-kinds, exercise-types, writing-rules, levels, why-this-order, picture-style
+skills/guided-lesson/templates/   lesson-page.html, test-page.html
+```
+
+## Licence
+MIT: free to use, change and pass on to colleagues. Keep the copyright notice. See `LICENSE`.
+
+Want each student's progress saved, video lessons, homework and payments in one place? → https://menta-lms.com

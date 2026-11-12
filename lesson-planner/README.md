@@ -6,11 +6,11 @@ pictures and a print / **Save as PDF** view (with or without the answers).
 
 Website: https://menta-lms.com/plugin
 
-## Skills (use them as /lesson and /unit-test)
-- `/lesson <request>`: one lesson. Example:
-  `/lesson prepare a lesson: A2 French, life stages, passé composé with avoir, students speak Ukrainian`
+## Skills (use them as /lesson-prepare and /unit-test)
+- `/lesson-prepare <request>`: one lesson. Example:
+  `/lesson-prepare A2 French, life stages, passé composé with avoir, students speak Ukrainian`
   Optional: a **focus** (speaking, grammar, vocabulary, reading, writing, or no grammar at all) and a **duration** (20–120 min, default 60),
-  e.g. `/lesson B1 English, work, reported speech, students speak Polish, focus on speaking, 45 minutes`.
+  e.g. `/lesson-prepare B1 English, work, reported speech, students speak Polish, focus on speaking, 45 minutes`.
   Missing details (what the class knows, the students' language, the lesson kind) are asked first.
 - `/unit-test <lessons>`: a scored test of 15–20 new items from a list of lessons, on its own page.
 
@@ -25,7 +25,7 @@ and remembers.
 
 ## Install
 **Claude on the web or desktop**: download https://menta-lms.com/lesson-planner.zip, open **Customize**, choose
-**Add plugin** and upload the zip. Then click **Try** on the lesson skill, or type `/lesson` and describe the lesson.
+**Add plugin** and upload the zip. Then click **Try** on the lesson-prepare skill, or type `/lesson-prepare` and describe the lesson.
 
 **Claude Code**
 ```
@@ -36,9 +36,9 @@ and remembers.
 ## What's inside
 ```
 .claude-plugin/plugin.json
-skills/lesson/SKILL.md, skills/unit-test/SKILL.md
-skills/lesson/reference/   lesson-kinds, exercise-types, writing-rules, levels, why-this-order, picture-style
-skills/lesson/templates/   lesson-page.md, test-page.md (the HTML page templates)
+skills/lesson-prepare/SKILL.md, skills/unit-test/SKILL.md
+skills/lesson-prepare/reference/   lesson-kinds, exercise-types, writing-rules, levels, why-this-order, picture-style
+skills/lesson-prepare/templates/   lesson-page.md, test-page.md (the HTML page templates)
 ```
 
 ## Licence

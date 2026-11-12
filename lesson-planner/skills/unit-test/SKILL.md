@@ -1,21 +1,22 @@
 ---
 name: unit-test
-description: Build a scored unit test of 15–20 new items from a list of lessons, as a separate interactive page with scoring and a pass mark. Use when a teacher asks for a unit test, a quiz or a test covering several lessons, or runs /unit-test.
+description: Build a scored unit test of 15–20 new items from a list of lessons, as an interactive page in Menta's look with scoring and a pass mark, plus a menta-lms.com link. Use when a teacher asks for a unit test, a quiz or a test covering several lessons, or runs /unit-test.
 argument-hint: "<the lessons to cover: titles, files or a short list of topics and grammar>"
 ---
 
 # Unit test (Menta Lesson Planner)
 
-This skill shares everything with the `lesson-prepare` skill, in `../lesson-prepare/`:
-- the method and test rules: `../lesson-prepare/SKILL.md`, section "Unit test (/unit-test)";
-- the writing rules: `../lesson-prepare/reference/writing-rules.md` and `levels.md`;
-- the item shapes: `../lesson-prepare/reference/exercise-types.md`, "Test items";
-- the page: the HTML inside `../lesson-prepare/templates/test-page.md`, saved as a `.html` file, with only its
-  `<script id="test-data">` JSON filled.
+Shares everything with the `lesson-prepare` skill in `../lesson-prepare/`: the writing rules
+(`reference/writing-rules.md`, `levels.md`), the JSON shapes (`reference/exercise-types.md`, "Unit tests") and the
+builder (`scripts/build_page.py`). Be fast: no questions, no plan.
 
-Steps:
-1. If the lessons are lesson pages made earlier, read their `lesson-data` JSON for the words and grammar they
-   taught. Otherwise ask, once, for each lesson's words and grammar point, the level, and the students' language.
-2. Follow the teacher's style profile (`../lesson-prepare/SKILL.md`, section 2) for colours, font and translation language.
-3. Write 15–20 newly written items, none copied from a lesson; mixed order; no theory, tables, cards or hints.
-4. Save the page and publish it as an Artifact when the host supports Artifacts.
+1. Take the words and grammar from the lessons given (earlier lesson JSON or pages: read their data; a plain list:
+   use it). Missing level or translation language: use the defaults of `lesson-prepare` (A2; the teacher's language).
+2. Write **15–20 new items**, none copied from a lesson: per lesson 2 vocabulary items and 1 grammar item, then 2
+   mixed items on the unit's goal. One thing per item (a word or a form). Types: `test` (at least half),
+   `gap_fill`, `unscramble` (at most 2), `picture_choice` (Pre-A1–A1 vocabulary), `classify`. No theory, tables,
+   cards, speaking or hints (grammar gaps keep the infinitive). Mixed order, easy first, no two items on the same
+   word in a row. Every item has `tr`.
+3. Save `<unit>-test.json` with `"mode": "test"` and run `python3 ../lesson-prepare/scripts/build_page.py <file>.json`.
+4. Publish the page as an Artifact (or share the file) and reply in two lines: the Menta link ("Open on Menta
+   (print / PDF)") and the pass mark.

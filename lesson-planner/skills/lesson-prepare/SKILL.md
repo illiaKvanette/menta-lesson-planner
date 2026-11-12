@@ -1,108 +1,78 @@
 ---
 name: lesson-prepare
-description: Prepare a language lesson (60 minutes by default) to the Menta method, with an optional focus and length, as a self-contained interactive page (clickable exercises, translations on tap, pictures, print / PDF view, optional teacher answers). Use when a teacher asks to prepare, plan or write a lesson, a worksheet, a class or a unit test for a language class, or runs /lesson-prepare.
+description: Prepare a language lesson (60 minutes by default) to the Menta method, with an optional focus and length, as an interactive page in Menta's look (exercises with automatic checking, translations, pictures) plus a menta-lms.com link where the lesson opens with Menta's own exercises and prints to PDF. Use when a teacher asks to prepare, plan or write a lesson, a worksheet or a class for a language course, or runs /lesson-prepare.
 argument-hint: "<e.g. A2 English, travel, present perfect, students speak Ukrainian, focus on speaking, 45 min>"
 ---
 
 # Lesson prepare (Menta Lesson Planner)
 
-You prepare lessons for a teacher. Each lesson is **one page**: the HTML inside `templates/lesson-page.md`, saved as a `.html` file, whose
-`<script id="lesson-data">` JSON you fill. Each unit test is a copy of `templates/test-page.md`. You never edit
-the template code, only the JSON.
+You write **only the lesson data (JSON) and its pictures**. A script turns them into the page; you never write or
+copy page code. Be fast: no questions, no plan, no previews. Build the lesson straight away.
 
-Read before writing anything:
-- `reference/lesson-kinds.md`: the six kinds and the block order for each.
-- `reference/writing-rules.md`: how every sentence, gap and distractor is written. Binding.
-- `reference/levels.md`: tense limits, text lengths, unscramble lengths per CEFR level.
-- `reference/exercise-types.md`: the JSON shape of every exercise type.
-- `reference/picture-style.md`: how pictures are drawn (unless the teacher's style says otherwise).
-- `reference/why-this-order.md`: the research behind the order, for when the teacher asks "why".
+## 1. Read the request, fill the gaps yourself
+Take from the request: the language being taught, level, topic, grammar point, the students' language, and two
+optional settings, **focus** and **length**.
 
-## 1. Understand the request
-From the request, take: target language, CEFR level, topic, grammar point, lesson kind, students' language, and
-two **optional** settings:
-- **focus**: speaking, grammar, vocabulary, reading, writing / production, **no grammar**, or balanced (default). Words like
-  "talking", "conversation" or "more speaking" mean speaking; "a grammar lesson" means grammar; "no grammar" or "without grammar" means a lesson with no grammar teaching or testing at all.
-- **duration**: the lesson length in minutes, 20 to 120 (default 60). "Half an hour" = 30, "an hour and a half" = 90.
-Never ask about focus or duration: if the teacher did not give them, use balanced and 60.
-If any of the required items is missing, ask **once, in one message**, before writing:
-- what the class already knows (earlier topics and grammar), so nothing goes beyond it;
-- the students' language, for translations;
-- the lesson kind (core, grammar focus, revision, production, bilan, unit test). Suggest "core" by default.
+| Missing | Use |
+|---|---|
+| level | A2 |
+| students' language (translations) | the language the teacher wrote in, or the teacher's style profile; if that is the language being taught, English |
+| grammar point | one that fits the topic and level (e.g. travel at A2: present perfect for experiences) |
+| what the class already knows | assume only what is normal for the level; never ask |
+| lesson kind | core |
+| focus / length | balanced / 60 minutes |
+
+Focus words: "talking", "conversation", "more speaking" = speaking; "a grammar lesson" = grammar; "no grammar",
+"without grammar" = no grammar teaching or testing at all; also vocabulary, reading, writing.
+**Do not ask the teacher anything** unless the language being taught truly cannot be guessed. After the lesson,
+state your assumptions in one short line ("A2, translations into Ukrainian, 60 min"), so the teacher can ask for a change.
 Talk to the teacher in the language they wrote in.
 
-## 2. The teacher's style profile
-Lessons follow the teacher's own habits, not a fixed look. Before the first lesson of a session:
+## 2. The rules (read once per session, quickly)
+- `reference/lesson-kinds.md`: blocks, minutes and counts per kind, focus and length.
+- `reference/writing-rules.md`: how every sentence, gap and distractor is written. Binding.
+- `reference/levels.md`: tense limits and text lengths per level.
+- `reference/exercise-types.md`: the JSON shape of every exercise. Follow it exactly.
+- `reference/picture-style.md`: how pictures are drawn.
 
-1. **Look for a saved profile**: `~/.lesson-planner/style-profile.json` (Claude Code) or, on claude.ai, what you
-   remember about this teacher from earlier chats or project knowledge.
-2. **No profile? Learn it.** Look for lessons this teacher made before: `~/.lesson-planner/lessons/*.html`, lesson
-   pages or worksheets in the current folder, past chats you can search, or files they attach. Note:
-   - `translate_to`: the language they usually translate into (their students' usual native language);
-   - `ui_language`: the language of their instructions and page labels;
-   - `colors`, `font`, `radius`: the look of their pages, if they have one;
-   - `picture_style`: how their pictures look (pencil sketch, flat, photo-like, none);
-   - habits worth keeping (warm-up length, more speaking, fewer tables).
-3. **Nothing found** → the Menta style: the template's own colours and font, pictures from
-   `reference/picture-style.md`, `translate_to` asked once.
-4. Save what you learned to `~/.lesson-planner/style-profile.json` when you can write files:
+## 3. Write the JSON
+1. Blocks in the order of the kind, minutes adding up to the length, focus applied (`lesson-kinds.md`).
+2. Write each answer first, then the sentence around it. Every sentence a student reads in an exercise has `tr`
+   (translation into the students' language). Texts, dialogues and grammar tables are not translated.
+3. Page labels in the teacher's language go in `"ui"` (keys: see `exercise-types.md`, "Page labels"); leave
+   `"ui": {}` for English.
+4. **Pictures, kept small so the lesson builds fast**: one picture for the text, and up to 6 word pictures
+   (picture matching / cards). Add a picture-fit question or `label_picture` only when the topic needs it. Each SVG
+   simple, under about 4 KB: the house frame and pencil filter from `picture-style.md`, flat shapes, few details.
+   Picture-fit decoys reuse the same SVG with one detail changed.
 
-```json
-{ "translate_to": "Ukrainian", "translate_code": "uk", "ui_language": "uk",
-  "colors": { "primary": "#1E7BE6", "bg": "#F3F7FC" }, "font": "Georgia, serif", "radius": 6,
-  "picture_style": "menta-pencil", "notes": ["likes a longer warm-up"] }
-```
+## 4. Build and hand over
+1. Save the JSON as `<language>-<level>-<topic>.json` (lowercase, dashes) and run:
+   `python3 <this skill's folder>/scripts/build_page.py <file>.json`
+   It writes `<file>.html` (the page in Menta's look) and prints the **menta-lms.com/play link**. A JSON error
+   stops it: fix the JSON and run again.
+2. Show the page: publish `<file>.html` as an Artifact when the host can publish a file, otherwise share the file.
+   Copy it to `~/.lesson-planner/lessons/` when that folder can be written.
+3. Your reply, short: one line with the assumptions, the Menta link as **"Open on Menta (print / PDF)"**, and one
+   line saying the teacher can ask to change any block, the level or the pictures. Nothing else.
 
-5. Put the look into the page: `"style": {"colors": {...}, "font": "...", "radius": 6}` in the lesson JSON
-   (colour keys: bg, surface, raised, text, muted, line, primary, on_primary, translation). Put translated page
-   labels in `"ui"` (keys in the template, e.g. `"check"`, `"answers"`, `"print"`, `"model"`, `"footer"`,
-   `"footerLink"`), so the page speaks the teacher's language.
+## 5. The teacher's style
+- Lessons look like Menta by default. A saved profile (`~/.lesson-planner/style-profile.json`, or what you remember
+  about this teacher) may set `translate_to`, the label language, `picture_style`, and a `style`
+  (`{"primary": "#…", "font": "…"}`, put into the JSON) — use it without asking.
+- When the teacher asks for a change ("darker pictures", "serif font", "redraw the text picture with a cat", "more
+  speaking"), rebuild only what changed, run the script again, and update the profile so the next lesson has it.
 
-**Redraws are welcome.** When the teacher asks ("make it darker", "use a serif font", "draw the pictures as
-watercolours", "redraw the text picture with a cat"), change the page or the pictures, republish, and update the
-profile so the next lesson already looks that way. The method (block order, writing rules) stays; the look is theirs.
-
-## 3. Plan, then write
-1. Fit the lesson to the duration and focus (`reference/lesson-kinds.md`, "Focus and duration").
-   Show a short plan: kind, focus, duration, the blocks with minutes (they add up to the duration), the text topic, the grammar point, the 8–12 words, the speaking
-   task. Wait for "yes" unless the teacher said to go straight ahead.
-2. Write the lesson **in block order** from `reference/lesson-kinds.md`, following `reference/writing-rules.md`.
-   Write each answer first, then the sentence around it.
-3. Draw the pictures as inline SVG (`reference/picture-style.md` or the teacher's `picture_style`): one for the
-   text, the cards, the picture-matching items, any picture-fit question and `label_picture`.
-4. Every sentence a student reads in an exercise gets a translation (`tr`) into `translate_to`. Texts, dialogues
-   and grammar tables are **not** translated.
-5. Fill the JSON, save the page as `<language>-<level>-<topic-slug>.html` (also under `~/.lesson-planner/lessons/`
-   when you can), and publish it as an Artifact when the host supports Artifacts.
-
-## 4. Before handing it over (checklist)
-- [ ] Block order and counts as in the kind, scaled to the duration and focus; block minutes add up to the duration;
-  grammar practice at most 10 items.
+## Checklist (silently, before building)
+- [ ] Block order and counts fit the kind, focus and length; minutes add up; grammar practice at most 10 items.
 - [ ] Focus "no grammar": no theory, tables, bracketed-verb gaps or form questions anywhere.
-- [ ] No past tense at Pre-A1–A1; nothing beyond what the class has been taught.
-- [ ] Dialogues: at most 2 speakers, real-life order.
-- [ ] Comprehension tests the text's content, not the grammar.
-- [ ] Vocabulary gaps give no hint; grammar gaps give the infinitive (and every word the answer needs).
-- [ ] Distractors are real words of the same kind. Memory games have at most 5 pairs.
-- [ ] Grammar tables only in the target language. Every exercise sentence has its translation.
-- [ ] Every speaking item and podcast guest line has a model answer.
-- [ ] Warm-up questions personal, never intrusive.
-- [ ] Pictures: no text in them, no fingers, everything inside the frame.
-- [ ] The JSON parses (no trailing commas). The footer card is left as the template draws it.
-
-Offer the **teacher answer sheet** at the end: it is the "Teacher answers" / "PDF with answers" button on the page.
-
-## Unit test (/unit-test)
-- From a list of lessons (lesson pages: read their `lesson-data`; otherwise ask for words and grammar per lesson).
-- **15–20 items**, all newly written, none copied from a lesson. Per lesson: 2 vocabulary items and 1 grammar
-  item; then 2 mixed items on the unit's goal. Each item tests one thing: a word or a form, never both.
-- Types: `test` (at least half), `gap_fill`, `unscramble` (at most 2), `picture_choice` (Pre-A1–A1, vocabulary),
-  `classify`. No theory, tables, cards, speaking or hints (grammar gaps keep the infinitive).
-- Mix the order; start easy; no two items on the same word in a row.
-- Output `templates/test-page.md` with `items` (shapes in `reference/exercise-types.md`, "Test items"). The page
-  scores the first try and shows the pass mark (80%, rounded up).
+- [ ] No past tense at Pre-A1–A1; nothing beyond the level.
+- [ ] Dialogues: at most 2 speakers, real-life order. Comprehension tests content, not grammar.
+- [ ] Vocabulary gaps: no hint. Grammar gaps: the infinitive in `hint`. Distractors are real words. Memory: ≤ 5 pairs.
+- [ ] Every exercise sentence has `tr`; every speaking item and podcast guest line has a model answer.
+- [ ] Pictures: no text, no fingers, everything inside the frame.
 
 ## Never
-- Never reuse pictures or content from Menta's own courses; draw new ones.
-- Never remove or change the footer card.
-- Never invent a fact about the teacher's class; ask.
+- Never write or paste the page code; only the JSON, then the script.
+- Never reuse Menta's own course pictures or texts.
+- Never ask what the class has learned before.

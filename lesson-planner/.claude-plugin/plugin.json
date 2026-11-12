@@ -1,8 +1,8 @@
 {
   "name": "menta-lesson-planner",
   "displayName": "Menta Lesson Planner",
-  "version": "1.3.1",
-  "description": "Prepare language lessons and unit tests to the Menta method, with an optional focus (speaking, grammar, vocabulary, reading, writing, or no grammar) and length. Each lesson is an interactive page with clickable exercises, translations on tap, pictures and a print / PDF view.",
+  "version": "1.4.0",
+  "description": "Prepare language lessons and unit tests to the Menta method in one prompt: an interactive page in Menta's look with automatic checking, translations and pictures, plus a menta-lms.com link to open, share and print the lesson.",
   "author": {
     "name": "Menta",
     "url": "https://menta-lms.com"

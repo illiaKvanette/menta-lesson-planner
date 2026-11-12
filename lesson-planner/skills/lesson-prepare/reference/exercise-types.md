@@ -1,15 +1,14 @@
 # Exercise JSON shapes
 
-These are the same exercise types and data shapes Menta's lesson player uses, so a lesson made here can later be
-rebuilt in Menta one to one. The lesson page JSON:
+The lesson JSON. `scripts/build_page.py` turns it into the page (Menta's look) and the menta-lms.com/play link, where
+the same JSON opens with Menta's own exercise components. Write valid JSON only (no comments, no trailing commas).
 ```json
 { "title": "Life stages", "language": "French", "lang_code": "fr", "level": "A2", "kind": "Core", "focus": "speaking", "minutes": 45,
   "translate_to": "Ukrainian", "goal": "Talk about the stages of your life with the passé composé.",
-  "style": {}, "ui": {},
+  "ui": {},
   "blocks": [ { "name": "Warm-up", "minutes": 5, "exercises": [ { "type": "speaking", "task": "…", "task_tr": "…", "items": [] } ] } ] }
 ```
-Every exercise may carry `task` + `task_tr` (the instruction and its translation) and `teacher_note` (shown only
-with "Teacher answers"). `tr` is always the translation into `translate_to`. `svg` / `picture` hold an inline SVG string
+Every exercise may carry `task` + `task_tr` (the instruction and its translation). `tr` is always the translation into `translate_to`. `svg` / `picture` hold an inline SVG string
 (escape `"` as `\"` inside JSON).
 
 | type | fields |
@@ -37,14 +36,22 @@ with "Teacher answers"). `tr` is always the translation into `translate_to`. `sv
 | `production_cards` | `cards: [{role, role_tr, required_words: []}]` |
 | `image_task` | `svg`, `phrases: []` (useful phrases shown on tap) |
 
-## Test items (`templates/test-page.md`)
+## Unit tests
+Same JSON with `"mode": "test"` and only scorable types in the blocks (`test`, `gap_fill`, `unscramble`,
+`picture_choice`, `classify`); one block per part, or a single block. The page counts the first answer of every item
+and shows the pass mark (80%, rounded up).
 ```json
-{ "title": "Unit 2 test", "language": "French", "level": "A2", "translate_to": "Ukrainian", "style": {}, "ui": {},
-  "items": [
-    { "type": "test", "sentence": "…", "answer": "…", "options": ["…","…","…"], "tr": "…", "source": "Lesson 2.3" },
-    { "type": "gap_fill", "sentence": "…", "answer": "…", "hint": "infinitive, grammar only", "tr": "…" },
-    { "type": "unscramble", "sentence": "…", "tr": "…" },
-    { "type": "picture_choice", "svg": "<svg…>", "answer": "…", "options": ["…","…","…"] },
-    { "type": "classify", "sentence": "task", "columns": [{"title": "…"}], "items": [{"text": "…", "column": 0}] }
-  ] }
+{ "mode": "test", "title": "Unit 2 test", "language": "English", "level": "A2", "translate_to": "Ukrainian", "ui": {},
+  "blocks": [ { "name": "Words and grammar", "exercises": [
+    { "type": "test", "items": [ { "sentence": "…", "answer": "…", "options": ["…","…","…"], "tr": "…" } ] },
+    { "type": "gap_fill", "items": [ { "sentence": "…", "answer": "…", "hint": "infinitive, grammar only", "tr": "…" } ] } ] } ] }
 ```
+
+## Optional look
+`"style": {"primary": "#1E7BE6", "font": "Georgia, serif"}`: only from the teacher's style profile or request.
+
+## Page labels (`"ui"`)
+English by default. For another teacher language, translate the ones you need:
+`check, retry, correct, wrong, reset, model, translate, answers, allTr, min, build, wheel, done, phrases, words, start,
+choose, yourAnswer, allPairs, moves, tapCard, score, pass, finish, passed, failed, firstTry, made, ctaTitle, ctaSub,
+ctaBtn, ctaPrint, footer`.

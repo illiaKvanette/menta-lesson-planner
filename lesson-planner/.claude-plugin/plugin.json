@@ -17,5 +17,10 @@
     "tutoring",
     "worksheet"
   ],
-  "icon": ".claude-plugin/icon.png"
+  "icon": ".claude-plugin/icon.png",
+  "repository": "https://github.com/illiaKvanette/menta-lesson-planner",
+  "documentationUrl": "https://github.com/illiaKvanette/menta-lesson-planner/blob/main/lesson-planner/README.md",
+  "supportUrl": "https://github.com/illiaKvanette/menta-lesson-planner/issues",
+  "privacyPolicyUrl": "https://menta-lms.com/privacy",
+  "termsOfServiceUrl": "https://menta-lms.com/terms-of-use"
 }

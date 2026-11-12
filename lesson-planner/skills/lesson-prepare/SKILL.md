@@ -24,7 +24,18 @@ optional settings, **focus** and **length**.
 
 Focus words: "talking", "conversation", "more speaking" = speaking; "a grammar lesson" = grammar; "no grammar",
 "without grammar" = no grammar teaching or testing at all; also vocabulary, reading, writing.
-**Do not ask the teacher anything** unless the language being taught truly cannot be guessed. After the lesson,
+**Ask nothing else.** The only question is the speed choice below (and the language being taught, if it truly
+cannot be guessed).
+
+### The one question: fast or full?
+Before writing, ask once, as a **clickable choice** (the host's question tool, e.g. AskUserQuestion, with two
+options; where there is none, one short line with the two options):
+- **Fast (about 1 minute)**: no pictures. Picture exercises are swapped for other types of the same block.
+- **Full with pictures (up to 5 minutes, uses more tokens)**: every picture the lesson needs, drawn for it.
+
+Skip the question when the answer is already known: the teacher said so ("fast", "no pictures", "with pictures",
+"all pictures"), or their style profile has `"pictures": "fast" | "full"`. Remember their choice in the profile.
+A teacher who chose fast can later ask "add pictures": draw them, add them to the JSON and rebuild. After the lesson,
 state your assumptions in one short line ("A2, translations into Ukrainian, 60 min"), so the teacher can ask for a change.
 Talk to the teacher in the language they wrote in.
 
@@ -41,10 +52,14 @@ Talk to the teacher in the language they wrote in.
    (translation into the students' language). Texts, dialogues and grammar tables are not translated.
 3. Page labels in the teacher's language go in `"ui"` (keys: see `exercise-types.md`, "Page labels"); leave
    `"ui": {}` for English.
-4. **Pictures, kept small so the lesson builds fast**: one picture for the text, and up to 6 word pictures
-   (picture matching / cards). Add a picture-fit question or `label_picture` only when the topic needs it. Each SVG
-   simple, under about 4 KB: the house frame and pencil filter from `picture-style.md`, flat shapes, few details.
-   Picture-fit decoys reuse the same SVG with one detail changed.
+4. **Pictures** (`picture-style.md`), by the speed chosen:
+   - **Fast**: no SVG at all. No `picture`, `svg` fields; no `picture_choice`, `label_picture` or `image_task`
+     (use `memory_pairs`, `match_pairs`, `classify` or `speaking` in their place); cards without pictures.
+   - **Full**: a picture for the text, one for every new word (picture matching and cards), the picture-fit
+     question with its decoys, `label_picture` and `image_task` where the lesson calls for them. Keep each SVG lean
+     (shared `<defs>`, few gradients) so the page stays light.
+   - The teacher asks for more pictures later ("all words with pictures", "a picture for the dialogue"): add them
+     and rebuild, whichever speed was chosen first.
 
 ## 4. Build and hand over
 1. Save the JSON as `<language>-<level>-<topic>.json` (lowercase, dashes) and run:

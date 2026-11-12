@@ -6,7 +6,7 @@ pictures and a print / **Save as PDF** view (with or without the answers).
 
 Website: https://menta-lms.com/plugin
 
-## Commands
+## Skills (use them as /lesson and /unit-test)
 - `/lesson <request>`: one lesson. Example:
   `/lesson prepare a lesson: A2 French, life stages, passé composé with avoir, students speak Ukrainian`
   Optional: a **focus** (speaking, grammar, vocabulary, reading, writing, or no grammar at all) and a **duration** (20–120 min, default 60),
@@ -24,21 +24,21 @@ Ask for any change ("serif font", "darker", "watercolour pictures", "redraw the 
 and remembers.
 
 ## Install
+**Claude on the web or desktop**: download https://menta-lms.com/lesson-planner.zip, open **Customize**, choose
+**Add plugin** and upload the zip. Then click **Try** on the lesson skill, or type `/lesson` and describe the lesson.
+
 **Claude Code**
 ```
 /plugin marketplace add illiaKvanette/menta-lesson-planner
 /plugin install menta-lesson-planner@menta
 ```
-**Claude app (web and desktop)**: download https://menta-lms.com/lesson-planner-skill.zip, then Settings →
-Capabilities → Skills → Upload skill. The commands become plain requests: "Prepare a lesson: …".
 
 ## What's inside
 ```
 .claude-plugin/plugin.json
-commands/lesson.md, commands/unit-test.md
-skills/guided-lesson/SKILL.md
-skills/guided-lesson/reference/   lesson-kinds, exercise-types, writing-rules, levels, why-this-order, picture-style
-skills/guided-lesson/templates/   lesson-page.md, test-page.md (the HTML page templates)
+skills/lesson/SKILL.md, skills/unit-test/SKILL.md
+skills/lesson/reference/   lesson-kinds, exercise-types, writing-rules, levels, why-this-order, picture-style
+skills/lesson/templates/   lesson-page.md, test-page.md (the HTML page templates)
 ```
 
 ## Licence

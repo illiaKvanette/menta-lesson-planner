@@ -13,7 +13,7 @@ Do not change the rest of the code.
 <!--
   Lesson Planner by Menta: lesson page template.
   Fill ONLY the JSON inside <script id="lesson-data">. Everything else stays as is.
-  Data shapes: skills/guided-lesson/reference/exercise-types.md
+  Data shapes: skills/lesson/reference/exercise-types.md
 -->
 <style>
 :root{

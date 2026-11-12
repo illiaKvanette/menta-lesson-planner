@@ -1,9 +1,10 @@
 ---
-name: guided-lesson
-description: Prepare a 60-minute language lesson or a unit test to the Menta method, as a self-contained interactive page (clickable exercises, translations on tap, pictures, print / PDF view, optional teacher answers). Use when a teacher asks to prepare, plan or write a lesson, a worksheet, a class or a unit test for a language class, or runs /lesson or /unit-test.
+name: lesson
+description: Prepare a language lesson (60 minutes by default) to the Menta method, with an optional focus and length, as a self-contained interactive page (clickable exercises, translations on tap, pictures, print / PDF view, optional teacher answers). Use when a teacher asks to prepare, plan or write a lesson, a worksheet, a class or a unit test for a language class, or runs /lesson.
+argument-hint: "<e.g. A2 English, travel, present perfect, students speak Ukrainian, focus on speaking, 45 min>"
 ---
 
-# Guided lesson (Lesson Planner by Menta)
+# Lesson (Menta Lesson Planner)
 
 You prepare lessons for a teacher. Each lesson is **one page**: the HTML inside `templates/lesson-page.md`, saved as a `.html` file, whose
 `<script id="lesson-data">` JSON you fill. Each unit test is a copy of `templates/test-page.md`. You never edit
